@@ -1,0 +1,23 @@
+1. Login, haslo
+2. Wybor pojazdu z bazy danych lub dodanie nowego (model, marka, silnik(diesel, benzyna),orientacyjne koszty oleju, filtrów do danego typu pojazdu)
+- Liczenie spalania: ilosc zatankowanego paliwa, ilosc przejechanych km (sumowanie w tle do wymiany plynow auta jesli funkcja wlaczona) - automatyczne dodawanie daty tankowania i zapisu w bazie
+- Data przegladu rejestracyjnego (wprowadzenie+przypomnienie)
+- Data ubezpieczenia (wprowadzenie+przypomnienie)
+- Data badania technicznego (wprowadzenie+przypomnienie)
+- Data wymiany olejow+filtrow (w zaleznosci diesel/benzyna) (wprowadzenie+przypomnienie)
+- szacunkowe koszty wszystkich czynnosci utrzymaniowych
+- strona na notatnik
+- mozliwosc dodania nowych kosztow i przypomnien
+- wyliczenie srednich kosztow auta na miesiac, rok
+
+Bardziej skomplikowane:
+- na podstawie pogody propozycja zmiany kol na letnie/zimowe
+- kalkulator ubezpieczen najpopularniejszych
+- umow termin zmiany opon w warsztacie
+
+Wyglad calosci:
+Rozsuwane belki z odpowiednimi nazwami.
+
+Ustawienia
+- Mozliwosc wyboru jezyka Pl, Ang
+- Wlaczenie, wylaczenie poszczegolnych powiadomien
