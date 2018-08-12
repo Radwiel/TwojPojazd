@@ -46,3 +46,34 @@ Bazy danych:
 3. Pojazd_uzytkownika - ilosc przejechanych km, ilosc zatankowanego paliwa, daty tankowania, koszt zakupu, data przegladu rejestracyjnego, data ubezpieczenia, data badania technicznego, data wymiany olejow+filtrow, dynamicznie dodawane nowe rekordy do punktu f
 4.
 
+Struktura Bazy danych:
+
+- Tabela Dane u¿ytkownika
+
++----+-------+----------+------------------+-------+------------------+
+| id | Imie  | Nazwisko | Adres Email	   | login | zahashowne has³o |  
++----+-------+----------+------------------+-------+------------------+
+| 1  | Adam  | Kowalski | a.kowaslki@wp.pl | xxxxx |      xyz123      |
++----+-------+----------+------------------+-------+------------------+
+
+
+- Tabela Dane Pojazdu
+
++----+-------+-------+----------+---------------+-----------------+
+| id | Marka | Model | przebieg | rodzaj paliwa | kolor karoserii |
++----+-------+-------+----------+---------------+-----------------+
+| 1  | Honda | Civic | 180000   | benzyna       | srebrny         |
++----+-------+-------+----------+---------------+-----------------+ 
+
+- Tabela Twój pojazd
+
++----+----------------+------------+
+| Id | Id u¿ytkownika | Id pojazdu |
++---------------------+------------+
+| 1  |       1        |      1     |
++----+----------------+------------+
+
+
+- Tabela Utrzymanie auta
+TBC.......
+
