@@ -1,12 +1,15 @@
 1. Login, haslo --> Baza danych uzytkownikow --> odwolujaca sie do bazy danych samochodow
+[PI] Dodanie alternatywnej metody logowania poprzez Odcisk Palca
+[PI] Opcja czy konto ma byæ zapamiêtane - logowanie pinem
+[PI] Pierwsza faza bez zewnêtrznej BD jedynie mo¿liwoœæ doania w³asnego auta w kolejnych fazach dodanie bazy danych z modeliami aut
 2. Kazdy uzytkownik przy pierwszym logowaniu wybiera pojazd z bazy danych lub dodaje nowy (model, marka, silnik(diesel, benzyna))
 Rozsuwane belki z odpowiednimi nazwami:
 a - Liczenie spalania:
 - manualne wprowadzenie ilosci zatankowanego paliwa
-- manualne wprowadzenie ilosci przejechanych km (sumowanie w tle do wymiany plynow/filtrow pojazdu jesli funkcja wlaczona)
-- automatyczne dodawanie daty tankowania
-- automatyczny zapis w bazie danych uzytkownika
-- wyliczenie sredniego spalania po kliknieciu w przycisk "wylicz"
+- manualne wprowadzenie ilosci przejechanych km (sumowanie w tle do wymiany plynow/filtrow/rozrz¹du pojazdu jesli funkcja wlaczona)
+- automatyczne dodawanie daty tankowania [PI] Mo¿liwoœæ rêcznej zmiany daty jeœli np dane wprowadzamy po kilku dniach jak sobie przypomnimy ¿ê nie zapsialiœmy w wapliakcji
+- automatyczny zapis w bazie danych uzytkownika [PI] Proponuje przycisk zapisz - zeby u¿ytkownik wiedzia³ ci by³ œwiadom co robi
+- wyliczenie sredniego spalania po kliknieciu w przycisk "wylicz" [PI] Proponuje automatyczne wyleczenie spalania - mo¿liwoœæ wyboru w jakim okresie  ile spaliliœmy  
 b - Do przegladu rejestracyjnego zostalo
 - manualne wprowadznie data ostatniego przegladu rejestracyjnego (wprowadzenie+przypomnienie)
 - domyslnie wybrana opcja (do edycji) rok waznosci,
@@ -16,14 +19,14 @@ c - Data ubezpieczenia
 - domyslnie wybrana opcja (do edycji) rok waznosci,
 - dodatkowa opcja platnosc calkowita/ratalna - gdy opcja 2 mozliwosc ustawienia ilosci rat, wpisania terminow splat i dat przypomnienia (dzien roboczy wczesniej)
 - ustawienie przypomnienia w aplikacji na tydzien przed wygasnieciem ubezpieczenia lub/i kalendarzu telefonu
-d - Data badania technicznego
+d - Data badania technicznego [PI] uwa¿am ¿e nie potrzbne - dubluje siê z przegl¹dem punkt b
 - manualne wprowadznie daty ostatniego badania technicznego
 - domyslnie wybrana opcja (do edycji) rok waznosci,
 - ustawienie przypomnienia w aplikacji na tydzien wczesniej lub/i kalendarzu telefonu
 e - Data wymiany olejow+filtrow (w zaleznosci od silnika diesel/benzyna)
 - manualne wprowadznie daty ostatniej wymiany
-- domyslnie wybrana opcja - przypomnij za rok lub co 15k km (liczone przez wprowadzone tankowania),
-- ustawienie przypomnienia w aplikacji na tydzien wczesniej lub/i kalendarzu telefonu
+- domyslnie wybrana opcja - przypomnij za rok lub co 15k km (liczone przez wprowadzone tankowania), [PI] Proponuje przy mo¿liwosæ zmiany parametru co ile niekórzy wyieniaj¹ co 10k
+- ustawienie przypomnienia w aplikacji na tydzien wczesniej lub/i kalendarzu telefonu [PI] propnuje przypomnienie kóry automatycznie za³aæ¿y siêjeœli zosta³o przejchane od ostatniej wymiany X km lub od daty jeœli zbli¿a siê termin np p³yny hamulcowe wymieniaæco 2 lata
 f - Dodaj kategoriê
 - mozliwosc dodania nowych kosztow i przypomnien
 g - strona na notatnik
@@ -31,17 +34,21 @@ g - strona na notatnik
 h - Podsumowanie
 - szacunkowe koszty wszystkich czynnosci utrzymaniowych
 - wyliczenie srednich kosztow auta na miesiac, rok
-
+[PI] i - Planer podró¿y
+- w kolejnych fazach dodanie planera podró¿y
+- mo¿liwoœæwyszukiwania stacji paliw na trasie
+- planowanie postowjów
+- szacunkowe liczenie iloœæi zu¿ytego paliwa oraz ceny (zaciagniecie œredniej ceny paliwa z internetu i obliczenie szacunkowe kosztów podró¿y)
 Bardziej skomplikowane:
 - na podstawie pogody propozycja zmiany kol na letnie/zimowe - umow termin zmiany opon w warsztacie
-- kalkulator najpopularniejszych ubezpieczen
+- kalkulator najpopularniejszych ubezpieczen [PI] Uwa¿am za cie¿ko realizowalne 
 
 Ustawienia
 - Mozliwosc wyboru jezyka Pl, Ang
 - Wlaczenie, wylaczenie poszczegolnych powiadomien/przypomnien
 
 Bazy danych:
-1. Uzytkownik - imie, nazwisko, pojazd_uzytkownika (pobiera z bazy 2 i 3),
+1. Uzytkownik - imie, nazwisko, pojazd_uzytkownika (pobiera z bazy 2 i 3), [PI] Nie miesza³bym danych u¿ytkowniak z pojazdem - wykona³bym odzielne tabele na dane u¿ytkownika, dane pojazu i odzienln¹ tableê u¿ytkownik pojazd
 2. Pojazd - Modele, marki, silniki (na poczatku diesel lub benzyna), orientacyjne koszty oleju, filtrów do danego typu pojazdu
 3. Pojazd_uzytkownika - ilosc przejechanych km, ilosc zatankowanego paliwa, daty tankowania, koszt zakupu, data przegladu rejestracyjnego, data ubezpieczenia, data badania technicznego, data wymiany olejow+filtrow, dynamicznie dodawane nowe rekordy do punktu f
 4.
@@ -50,11 +57,11 @@ Struktura Bazy danych:
 
 - Tabela Dane u¿ytkownika
 
-+----+-------+----------+------------------+-------+------------------+
-| id | Imie  | Nazwisko | Adres Email	   | login | zahashowne has³o |  
-+----+-------+----------+------------------+-------+------------------+
-| 1  | Adam  | Kowalski | a.kowaslki@wp.pl | xxxxx |      xyz123      |
-+----+-------+----------+------------------+-------+------------------+
++----+-------+----------+------------------+-------+------------------+--------------+---------------+
+| id | Imie  | Nazwisko | Adres Email	   | login | zahashowne has³o |  created	 | modified		 |
++----+-------+----------+------------------+-------+------------------+--------------+---------------+
+| 1  | Adam  | Kowalski | a.kowaslki@wp.pl | xxxxx |      xyz123      |	dd.mm.yy	 | dd.mm.yy		 |
++----+-------+----------+------------------+-------+------------------+--------------+---------------+
 
 
 - Tabela Dane Pojazdu
@@ -75,5 +82,4 @@ Struktura Bazy danych:
 
 
 - Tabela Utrzymanie auta
-TBC.......
 
