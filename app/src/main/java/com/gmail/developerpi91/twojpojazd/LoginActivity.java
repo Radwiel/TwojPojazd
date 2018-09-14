@@ -319,10 +319,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
+                if (pieces[0].equals(mEmail) && pieces[1].equals(mPassword)) {
                     // Account exists, return true if the password matches.
+
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    return pieces[1].equals(mPassword);
+                    return true;
                 }
             }
 

@@ -13,5 +13,11 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Twój Pojazd</string>
+
+    <string name="imports">import</string>
+    <string name="about">o mnie</string>
+    <string name="settings">Ustawienia</string>
+
+
 </resources>
